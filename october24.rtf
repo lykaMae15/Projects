@@ -1,0 +1,50 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2639
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fmodern\fcharset0 Courier;}
+{\colortbl;\red255\green255\blue255;\red191\green100\blue38;\red32\green32\blue32;\red88\green118\blue71;
+\red153\green168\blue186;\red133\green96\blue154;\red254\green187\blue91;\red86\green132\blue173;}
+{\*\expandedcolortbl;;\csgenericrgb\c74902\c39216\c14902;\csgenericrgb\c12549\c12549\c12549;\csgenericrgb\c34510\c46275\c27843;
+\csgenericrgb\c60000\c65882\c72941;\csgenericrgb\c52157\c37647\c60392;\csgenericrgb\c99608\c73333\c35686;\csgenericrgb\c33725\c51765\c67843;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 API client\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\fs26 \cf2 \cb3 import \cf4 'package:get/get.dart'\cf2 ;\
+\
+class \cf5 ApiClient \cf2 extends \cf5 GetConnect \cf2 implements \cf5 GetxService\{\
+  \cf2 late \cf5 String \cf6 token\cf2 ;\
+  final \cf5 String \cf6 appBaseUrl\cf2 ;\
+\
+  late \cf5 Map<String\cf2 , \cf5 String> \cf6 _mainHeaders\cf2 ;\
+\
+  \cf5 ApiClient(\{\cf2 required this\cf5 .\cf6 appBaseUrl\cf5 \})\{\
+    \cf6 baseUrl \cf5 = \cf6 appBaseUrl\cf2 ;\
+    \cf6 timeout \cf5 = \cf7 Duration\cf5 (seconds: \cf8 30\cf5 )\cf2 ;\
+    \cf6 _mainHeaders\cf5 =\{\
+      \cf4 'Content-type'\cf5 :\cf4 'application/json; charset=UTF-8'\cf2 ,\
+      \cf4 'Authorization'\cf5 :\cf4 'Bearer \cf5 $\cf6 token\cf4 '\cf2 ,\
+    \cf5 \}\cf2 ;\
+  \cf5 \}\
+  Future<Response> \cf7 getData\cf5 (String uri\cf2 ,\cf5 ) \cf2 async \cf5 \{\
+    \cf2 try\cf5 \{\
+      Response response= \cf2 await \cf5 get(uri)\cf2 ;\
+      return \cf5 response\cf2 ;\
+    \cf5 \}\cf2 catch\cf5 (e)\{\
+      \cf2 return \cf7 Response\cf5 (statusCode: \cf8 1\cf2 , \cf5 statusText: e.toString())\cf2 ;\
+    \cf5 \}\
+  \}\
+\}\
+\
+\cf2 import \cf4 'package:ecommerce/data/api/api_client.dart'\cf2 ;\
+import \cf4 'package:get/get.dart'\cf2 ;\
+\
+class \cf5 PopularProductRepo  \cf2 extends \cf5 GetxService\{\
+  \cf2 final \cf5 ApiClient \cf6 apiClient\cf2 ;\
+  \cf5 PopularProductRepo(\{\cf2 required this\cf5 .\cf6 apiClient\cf5 \})\cf2 ;\
+\
+  \cf5 Future<Response> \cf7 getPopularProductList\cf5 () \cf2 async\cf5 \{\
+    \cf2 return await \cf6 apiClient\cf5 .getData(\cf4 "https://www.dbestech.com/api/product/list"\cf5 )\cf2 ;\
+  \cf5 \}\
+\
+I am currently on the part where I need to make backend.}
