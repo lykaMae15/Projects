@@ -1,0 +1,190 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2639
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fmodern\fcharset0 Courier;\f2\fmodern\fcharset0 Courier-Oblique;
+}
+{\colortbl;\red255\green255\blue255;\red153\green168\blue186;\red32\green32\blue32;\red191\green100\blue38;
+\red88\green118\blue71;\red173\green169\blue32;\red254\green187\blue91;\red86\green132\blue173;\red133\green96\blue154;
+}
+{\*\expandedcolortbl;;\csgenericrgb\c60000\c65882\c72941;\csgenericrgb\c12549\c12549\c12549;\csgenericrgb\c74902\c39216\c14902;
+\csgenericrgb\c34510\c46275\c27843;\csgenericrgb\c67843\c66275\c12549;\csgenericrgb\c99608\c73333\c35686;\csgenericrgb\c33725\c51765\c67843;\csgenericrgb\c52157\c37647\c60392;
+}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs26 \cf2 \cb3 \
+
+\f1 \cf4 import \cf5 'package:application/Pages/HomePage.dart'\cf4 ;\
+import \cf5 'package:application/main.dart'\cf4 ;\
+import \cf5 'package:carousel_slider/carousel_slider.dart'\cf4 ;\
+import \cf5 'package:flutter/material.dart'\cf4 ;\
+\
+import \cf5 '../slider/carousel.dart'\cf4 ;\
+\
+class \cf2 MyApp \cf4 extends \cf2 StatelessWidget \{\
+  \cf6 @override\
+  \cf2 Widget \cf7 build\cf2 (BuildContext context) \{\
+    \cf4 return \cf7 MaterialApp\cf2 (\
+      debugShowCheckedModeBanner: \cf4 false,\
+      \cf2 home: \cf7 HomePage\cf2 ()\cf4 ,\
+    \cf2 )\cf4 ;\
+  \cf2 \}\
+\}\
+\
+\cf4 final \cf2 List<String> imgList =[\
+\cf5 "https://media.istockphoto.com/id/586171340/photo/pumpkin-and-carrot-soup.jpg?s=612x612&w=0&k=20&c=tM9Ancik-VCMv8te3Tf5TB3AwiHNxwQi3lQ4am3X5Os="\cf4 ,\
+  \cf5 "https://media.istockphoto.com/id/1262651311/photo/delicious-fennel-soup-with-cheese.jpg?s=612x612&w=0&k=20&c=Ixlek1x1tQ8ZTl8ufNS8yWNQaOGOgE82Yu3z7Cjac6Y="\cf4 ,\
+  \cf5 "https://media.istockphoto.com/id/1038979532/photo/curried-red-lentil-tomato-and-coconut-soup-delicious-vegetarian-food-on-grey-background-top.jpg?s=612x612&w=0&k=20&c=QcaTyFy2qrEisUFS1qMq088TpxRorm72qpupYgKO_3c="\cf4 ,\
+  \cf5 "https://media.istockphoto.com/id/1321757701/photo/broccoli-cream-soup-with-sunflower-and-sesame-seeds.jpg?s=612x612&w=0&k=20&c=B85MeeQsWzbbNvqUQikcpUkW2DjJHHS89jAYuYfOFhk="\cf4 ,\
+  \cf5 "https://media.istockphoto.com/id/513639676/photo/tomato-soup-and-croutons.jpg?s=612x612&w=0&k=20&c=VxjLhwE5VhDAZXEfWpQtq3FX4VLY0WENwy-6PxqsMmE="\cf4 ,\
+  \cf2 ]\cf4 ;\
+\
+\
+class \cf2 FoodTwo \cf4 extends \cf2 StatelessWidget \{\
+  \cf4 const \cf2 FoodTwo(\{Key? key\}) : \cf4 super\cf2 (key: key)\cf4 ;\
+\
+  \cf6 @override\
+  \cf2 Widget \cf7 build\cf2 (BuildContext context) \{\
+    \cf4 return \cf7 Scaffold\cf2 (\
+      appBar: \cf7 AppBar\cf2 (backgroundColor: \cf7 Color\cf2 (\cf8 0xff575200\cf2 )\cf4 ,\
+        \cf2 title: \cf7 Text\cf2 (\cf5 ""\cf2 )\cf4 ,\
+        \cf2 actions: [\
+          \cf7 Scrollbar\cf2 (child: \cf7 IconButton\cf2 (onPressed: ()\{\}\cf4 , \cf2 icon: \cf7 Icon\cf2 (Icons.
+\f2\i \cf9 search
+\f1\i0 \cf2 )\cf4 ,\
+          \cf2 )\cf4 ,\
+          \cf2 )\cf4 ,\
+        \cf2 ]\cf4 ,\
+      \cf2 )\cf4 ,\
+      \cf2 body: \cf7 SingleChildScrollView\cf2 (\
+        child: \cf7 Container\cf2 (\
+          child: \cf7 Column\cf2 (\
+            children: [\
+              \cf7 Padding\cf2 (padding: \cf7 EdgeInsets\cf2 .\cf7 all\cf2 (\cf8 20\cf2 )\cf4 ,\
+                \cf2 child: \cf7 Text\cf2 (\cf5 "Nutritious Soup"\cf4 ,\
+                  \cf2 style: \cf7 TextStyle\cf2 (\
+                    color: Colors.
+\f2\i \cf9 white
+\f1\i0 \cf4 ,\
+                    \cf2 fontWeight: FontWeight.
+\f2\i \cf9 bold
+\f1\i0 \cf4 ,\
+                    \cf2 fontSize: \cf8 25\cf4 ,\
+                  \cf2 )\cf4 ,\
+                \cf2 )\cf4 ,\
+              \cf2 )\cf4 ,\
+              \cf7 CarouselSlider\cf2 (\
+                items: imgList.map((item) => \cf7 Container\cf2 (\
+                  child: \cf7 Center\cf2 (\
+                    child: \cf7 Image\cf2 .\cf7 network\cf2 (item\cf4 ,\
+                      \cf2 fit: BoxFit.\cf9 cover\cf4 ,\
+                      \cf2 width: \cf8 1000\cf4 ,\
+                    \cf2 )\cf4 ,\
+                  \cf2 )\cf4 ,\
+                \cf2 ))\
+                    .toList()\cf4 ,\
+                \cf2 options: \cf7 CarouselOptions\cf2 (\
+                  autoPlay: \cf4 true,\
+                  \cf2 aspectRatio: \cf8 2.0\cf4 ,\
+                  \cf2 enlargeCenterPage: \cf4 true,\
+                \cf2 )\cf4 ,\
+              \cf2 )\cf4 ,\
+              \cf7 SizedBox\cf2 (height: \cf8 20\cf4 ,\cf2 )\cf4 ,\
+              \cf7 Padding\cf2 (\
+                padding: \cf4 const \cf7 EdgeInsets\cf2 .\cf7 only\cf2 (left: \cf8 20\cf2 )\cf4 ,\
+                \cf2 child: \cf7 Container\cf2 (alignment: Alignment.
+\f2\i \cf9 topLeft
+\f1\i0 \cf4 ,\
+                  \cf2 child: \cf7 Text\cf2 (\cf5 'Featured'\cf4 , \cf2 style: \cf7 TextStyle\cf2 (color: Colors.
+\f2\i \cf9 white
+\f1\i0 \cf4 ,\cf2 fontSize: \cf8 22\cf4 ,\cf2 fontWeight: FontWeight.
+\f2\i \cf9 w700
+\f1\i0 \cf2 )\cf4 ,\
+                  \cf2 )\cf4 ,\
+                \cf2 )\cf4 ,\
+              \cf2 )\cf4 ,\
+              \cf7 SizedBox\cf2 (height: \cf8 10\cf4 ,\cf2 )\cf4 ,\
+              \cf7 Material\cf2 (\
+                elevation: \cf8 10\cf4 ,\
+                \cf2 borderRadius: \cf7 BorderRadius\cf2 .\cf7 circular\cf2 (\cf8 40\cf2 )\cf4 ,\
+                \cf2 child: \cf7 Container\cf2 (\
+                  height: \cf8 200\cf4 ,\
+                  \cf2 width: \cf8 400\cf4 ,\
+                  \cf2 decoration: \cf7 BoxDecoration\cf2 (\
+                      borderRadius: \cf7 BorderRadius\cf2 .\cf7 circular\cf2 (\cf8 40\cf2 )\cf4 ,\
+                      \cf2 image: \cf7 DecorationImage\cf2 (\
+                          fit: BoxFit.\cf9 cover\cf4 ,\
+                          \cf2 image: \cf7 NetworkImage\cf2 (\cf5 "https://media.istockphoto.com/id/834889942/photo/fresh-homemade-black-bean-soup.jpg?s=612x612&w=0&k=20&c=Jj-t8JE_DsSN0A8Y_xLMDkP_yNN_PM4d7B4uLf6MarI="\cf4 ,\cf2 )\
+                      )\
+                  )\cf4 ,\
+                \cf2 )\cf4 ,\
+              \cf2 )\cf4 ,\
+              \cf7 SizedBox\cf2 (height: \cf8 10\cf4 ,\cf2 )\cf4 ,\
+              \cf7 Material\cf2 (\
+                elevation: \cf8 10\cf4 ,\
+                \cf2 borderRadius: \cf7 BorderRadius\cf2 .\cf7 circular\cf2 (\cf8 40\cf2 )\cf4 ,\
+                \cf2 child: \cf7 Container\cf2 (\
+                  height: \cf8 200\cf4 ,\
+                  \cf2 width: \cf8 400\cf4 ,\
+                  \cf2 decoration: \cf7 BoxDecoration\cf2 (\
+                    borderRadius: \cf7 BorderRadius\cf2 .\cf7 circular\cf2 (\cf8 40\cf2 )\cf4 ,\
+                    \cf2 image: \cf7 DecorationImage\cf2 (\
+                        fit: BoxFit.\cf9 cover\cf4 ,\
+                        \cf2 image: \cf7 NetworkImage\cf2 (\cf5 "https://media.istockphoto.com/id/1225416235/photo/mushroom-soup-in-a-white-plate-whole-champignons-bread-and-cut-green-onions-lie-on-a-blue.jpg?s=612x612&w=0&k=20&c=tWylp2LbvppNhz9HjZJO8OSPUd1rzHMLC-DVac4_liA="\cf4 ,\cf2 )\
+                    )\cf4 ,\
+                  \cf2 )\cf4 ,\
+                \cf2 )\cf4 ,\
+              \cf2 )\cf4 ,\
+              \cf7 SizedBox\cf2 (height: \cf8 10\cf4 ,\cf2 )\cf4 ,\
+              \cf7 Material\cf2 (\
+                elevation: \cf8 10\cf4 ,\
+                \cf2 borderRadius: \cf7 BorderRadius\cf2 .\cf7 circular\cf2 (\cf8 40\cf2 )\cf4 ,\
+                \cf2 child: \cf7 Container\cf2 (\
+                  height: \cf8 200\cf4 ,\
+                  \cf2 width: \cf8 400\cf4 ,\
+                  \cf2 decoration: \cf7 BoxDecoration\cf2 (\
+                    borderRadius: \cf7 BorderRadius\cf2 .\cf7 circular\cf2 (\cf8 40\cf2 )\cf4 ,\
+                    \cf2 image: \cf7 DecorationImage\cf2 (\
+                        fit: BoxFit.\cf9 cover\cf4 ,\
+                        \cf2 image: \cf7 NetworkImage\cf2 (\cf5 "https://media.istockphoto.com/id/1404763528/photo/homemade-broccoli-soup-with-cheddar-cheese.jpg?s=612x612&w=0&k=20&c=K6PNNwnPAItcu_dpFThYQle0lw8RS4bHBvblQRsVK3o="\cf4 ,\cf2 )\
+                    )\cf4 ,\
+                  \cf2 )\cf4 ,\
+                \cf2 )\cf4 ,\
+              \cf2 )\cf4 ,\
+              \cf7 SizedBox\cf2 (height: \cf8 10\cf4 ,\cf2 )\cf4 ,\
+              \cf7 Material\cf2 (\
+                elevation: \cf8 10\cf4 ,\
+                \cf2 borderRadius: \cf7 BorderRadius\cf2 .\cf7 circular\cf2 (\cf8 40\cf2 )\cf4 ,\
+                \cf2 child: \cf7 Container\cf2 (\
+                  height: \cf8 200\cf4 ,\
+                  \cf2 width: \cf8 400\cf4 ,\
+                  \cf2 decoration: \cf7 BoxDecoration\cf2 (\
+                      borderRadius: \cf7 BorderRadius\cf2 .\cf7 circular\cf2 (\cf8 40\cf2 )\cf4 ,\
+                      \cf2 image: \cf7 DecorationImage\cf2 (\
+                          fit: BoxFit.\cf9 cover\cf4 ,\
+                          \cf2 image: \cf7 NetworkImage\cf2 (\cf5 "https://media.istockphoto.com/id/1338761238/photo/moroccan-sweet-potato-lentil-soup-garnished-with-fresh-herbs.jpg?s=612x612&w=0&k=20&c=NWEP3cqCrwurp9SOYzKf-lS2kLH8581YC4p2WSgMxto="\cf4 ,\cf2 )\
+                      )\
+                  )\cf4 ,\
+                \cf2 )\cf4 ,\
+              \cf2 )\cf4 ,\
+              \cf7 SizedBox\cf2 (height: \cf8 10\cf4 ,\cf2 )\cf4 ,\
+              \cf7 Material\cf2 (\
+                elevation: \cf8 10\cf4 ,\
+                \cf2 borderRadius: \cf7 BorderRadius\cf2 .\cf7 circular\cf2 (\cf8 40\cf2 )\cf4 ,\
+                \cf2 child: \cf7 Container\cf2 (\
+                  height: \cf8 200\cf4 ,\
+                  \cf2 width: \cf8 400\cf4 ,\
+                  \cf2 decoration: \cf7 BoxDecoration\cf2 (\
+                    borderRadius: \cf7 BorderRadius\cf2 .\cf7 circular\cf2 (\cf8 40\cf2 )\cf4 ,\
+                    \cf2 image: \cf7 DecorationImage\cf2 (\
+                        fit: BoxFit.\cf9 cover\cf4 ,\
+                        \cf2 image: \cf7 NetworkImage\cf2 (\cf5 "https://media.istockphoto.com/id/607498822/photo/pumpkin-soup-served-with-croutons-and-pumpkin-seeds.jpg?s=612x612&w=0&k=20&c=stMAOHaT6V6Bdf4L_nt3rdgo8TBCnXtlFfZDY0a9krI="\cf4 ,\cf2 )\
+                    )\cf4 ,\
+                  \cf2 )\cf4 ,\
+                \cf2 )\cf4 ,\
+              \cf2 )]\cf4 ,\
+          \cf2 )\cf4 ,\
+        \cf2 )\cf4 ,\
+      \cf2 )\cf4 ,\
+    \cf2 )\cf4 ;\
+  \cf2 \}\
+\}\
+}
